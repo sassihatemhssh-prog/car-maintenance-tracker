@@ -1,1 +1,26 @@
-<!doctype html><html lang="ar" dir="rtl"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>سيارتي</title><h1>سيارتي — جاري تجهيز التطبيق</h1></html>
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#17212b">
+  <meta name="description" content="متابعة صيانة السيارة والوقود والمواعيد">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <title>سيارتي — سجل السيارة</title>
+</head>
+<body>
+  <main class="wrap">
+    <header class="topbar"><div><span class="kicker">دفتر سيارتك الرقمي</span><h1>سيارتي</h1></div><button id="backupBtn" class="outline" type="button">تصدير نسخة</button></header>
+    <section class="hero"><div><span class="muted">قراءة العداد الحالية</span><div class="odometer"><strong id="odometerDisplay">224,088</strong> <small>كم</small></div><form id="odometerForm" class="inline-form"><label for="odometerInput">تحديث العداد</label><input id="odometerInput" type="number" min="0" inputmode="numeric" required><button type="submit">حفظ</button></form></div><div class="hero-note"><span>تنبيهات المواعيد</span><strong>قبل 10 أيام و48 ساعة</strong><small>تظهر عند فتح التطبيق</small></div></section>
+    <section class="dates" aria-label="المواعيد السنوية"><article class="date-card"><span>الفحص الفني</span><strong id="inspectionStatus">—</strong><small>13/03/2027</small></article><article class="date-card"><span>خلاص الإذن بالجولان</span><strong id="licenseStatus">—</strong><small>04/03/2027</small></article><article class="date-card"><span>انتهاء التأمين</span><strong id="insuranceStatus">—</strong><small>04/07/2027</small></article></section>
+    <section class="columns"><article class="card"><div class="section-heading"><h2>الصيانة القادمة</h2></div><div id="maintenanceList" class="list"></div><p class="hint">تذكير الإطارات تقديري؛ افحص حالتها وضغطها دوريًا واتبع توصيات صانع السيارة.</p></article>
+    <article class="card"><div class="section-heading"><h2>إضافة سجل</h2></div><nav class="tabs" aria-label="نوع السجل"><button type="button" class="tab active" data-form="serviceForm">صيانة</button><button type="button" class="tab" data-form="fuelForm">وقود</button><button type="button" class="tab" data-form="washForm">غسيل</button></nav>
+    <form id="serviceForm" class="entry-form"><label>نوع الصيانة<select id="serviceType"><option value="زيت وفلتر">زيت وفلتر</option><option value="إطارات">إطارات</option><option value="صيانة أخرى">صيانة أخرى</option></select></label><div class="form-row"><label>التاريخ<input id="serviceDate" type="date"></label><label>العداد (كم)<input id="serviceKm" type="number" min="0" value="224088" required></label></div><div class="form-row"><label>المبلغ<input id="serviceCost" type="number" min="0" step="0.01" placeholder="0"></label><label>الفترة القادمة (كم)<input id="serviceInterval" type="number" min="1" placeholder="حسب النوع"></label></div><label>ملاحظات<input id="serviceNotes" maxlength="180" placeholder="تفاصيل الصيانة"></label><button class="primary" type="submit">حفظ الصيانة</button></form>
+    <form id="fuelForm" class="entry-form hidden"><div class="form-row"><label>التاريخ<input id="fuelDate" type="date"></label><label>العداد (كم)<input id="fuelKm" type="number" min="0" value="224088" required></label></div><div class="form-row"><label>الكمية (لتر)<input id="fuelLiters" type="number" min="0" step="0.1" required></label><label>المبلغ<input id="fuelCost" type="number" min="0" step="0.01" placeholder="0"></label></div><button class="primary" type="submit">حفظ تعبئة الوقود</button></form>
+    <form id="washForm" class="entry-form hidden"><div class="form-row"><label>التاريخ<input id="washDate" type="date"></label><label>المبلغ<input id="washCost" type="number" min="0" step="0.01" placeholder="0"></label></div><label>ملاحظات<input id="washNotes" maxlength="180" placeholder="تفاصيل الغسيل"></label><button class="primary" type="submit">حفظ الغسيل</button></form></article></section>
+    <section class="card history"><div class="section-heading"><h2>السجل السابق</h2><button id="clearRecordsBtn" class="outline" type="button">مسح السجلات المضافة</button></div><div id="recordList" class="list"></div><p class="hint">تُحفظ البيانات على هذا الجهاز وفي هذا المتصفح. استخدم «تصدير نسخة» للاحتفاظ بنسخة احتياطية.</p></section><footer>سيارتي • بياناتك محفوظة محليًا على جهازك</footer>
+  </main><script src="app.js"></script>
+</body>
+</html>
